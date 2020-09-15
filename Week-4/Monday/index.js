@@ -15,7 +15,7 @@ switch (command) {
         ProductController.add(params);
         break;
     case 'update':
-        ProductController.update(params1, params2);
+        ProductController.update(params);
         break;
     case 'delete':
         ProductController.delete(params);
@@ -28,3 +28,6 @@ switch (command) {
         break;    
 
 }
+
+
+console.log(command)

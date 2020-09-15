@@ -16,8 +16,8 @@ class ProductController{
         const result = Product.add(params);
         View.message(result);
     }
-    static update(params1, params2){
-        const result = Product.update(params1, params2);
+    static update(params){
+        const result = Product.update(params);
         View.message(result);
     }
     static delete(params){
