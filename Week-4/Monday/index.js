@@ -1,1 +1,30 @@
-nananananna
+//EXERCISE
+
+const command = process.argv[2];
+const params = process.argv.slice(3);
+const ProductController = require('./controller/controller.js');
+
+switch (command) {
+    case 'help':
+        ProductController.help();
+        break;
+    case 'list':
+        ProductController.list();
+        break;
+    case 'add':
+        ProductController.add(params);
+        break;
+    case 'update':
+        ProductController.update(params1, params2);
+        break;
+    case 'delete':
+        ProductController.delete(params);
+        break;
+    case 'complete':
+        ProductController.complete(params);
+        break;
+    case 'uncomplete':
+        ProductController.uncomplete(params);
+        break;    
+
+}
