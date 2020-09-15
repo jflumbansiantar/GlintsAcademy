@@ -2,7 +2,7 @@
 
 const command = process.argv[2];
 const params = process.argv.slice(3);
-const ProductController = require('./controller/controller.js');
+const ProductController = require('./controller/controller');
 
 switch (command) {
     case 'help':
@@ -25,9 +25,9 @@ switch (command) {
         break;
     case 'uncomplete':
         ProductController.uncomplete(params);
+        break;
+    default:
+        ProductController.message();
         break;    
 
 }
-
-
-console.log(command)

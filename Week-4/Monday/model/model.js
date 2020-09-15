@@ -28,15 +28,19 @@ class modelProduct {
     }
     static add(params){
         const tasks = this.list();
-        const [task, status, tag, created_at, completed_at] = params;
+        const [task, status, tag, createdAt, completedAt] = params;
         const nextId = tasks[tasks.length - 1].id + 1;
+        const createdAt = date1;
+        let date1 = (new Date ()).toLocaleDateString().split("/");
+        const completedAt = date2;
+        let date2 = (new Date ()).toLocaleDateString().split("/");
         const tempObject = {
             id : nextId,
             task : task,
             status :status,
             tag : tag,
-            created_at : created_at,
-            completed_at : completed_at,
+            created_at : createdAt,
+            completed_at : completedAt,
         }
         tasks.push(tempObject);
 
@@ -66,10 +70,19 @@ class modelProduct {
         return `Id ${id} has been deleted.`;
     }
     static complete(params){
-        
-    }
-    static uncomplete(params){
-        
+        const tasks = this.list();
+        const id = Number(params[0]);
+        const completedAt = [];
+        const uncomplete = [];
+
+        tasks.forEach(element => {
+            if (element[id].completedAt === true){
+                completedAt.push(element[id]);
+            } else {
+                uncomplete.push(element[id]);
+            }
+        }
+        )
     }
     static save(data){
         fs.writeFileSync('./data.json'. JSON.stringify(data, null, 2));

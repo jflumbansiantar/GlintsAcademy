@@ -1,12 +1,12 @@
 //Product Controller
 
 const Product = require('../model/model');
-const View = require('../view/view');
+const View = require('../view/view ');
 
 class ProductController{
     static help (){
         const help = Product.help();
-        view.help(help);
+        View.help(help);
     }
     static list(){
         const list = Product.list();
@@ -32,6 +32,9 @@ class ProductController{
         const result = Product.uncomplete(params);
         View.message(result);
     }
+    static message(){
+        View.message("Please input something.")
+    }
 }
-console.log(ProductController)
-// module.exports = ProductController;
+
+module.exports = ProductController;
