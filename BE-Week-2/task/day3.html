@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+        table, th, td {
+        border: 1px solid black;
+        }
+    </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To Do List</title>
+</head>
+<body>
+    <div class="container">
+        <h1>Salary </h1>
+        <form onsubmit="return submitHandler()">
+            <label for="task-title">Salary</label>
+            <select name="add-post" id="add-post">
+                <option value="income">Income</option>
+                <option value="exxpenses">Expenses</option>
+              </select>
+              <input type="number" name="add-post" id="add-post">
+            <input type="submit" value="Add"/>
+        </form>
+        <hr/>
+        <div id="add-post">
+        <table style = "width: 100%">
+            <thead>
+                <tr> <!-- Row 1 -->
+                    <th scope = "col">Id</th>
+                    <th scope = "col">Income</th>
+                    <th scope = "col">Expenses</th>
+                    <th scope = "col">Notes</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr> <!-- Row 2 -->
+                    <td>--Id-Post--</td>
+                    <td>--SUM-Income--</td>
+                    <td>--SUM-Expenses--</td>
+                    <td>--Notes--</td>
+                </tr>
+            </tbody>
+            <tfoot>
+                <td>Total</td>
+                <td></td>
+            </tfoot>
+        </table>
+    </div>
+</div>
+
+    <script src="js/day3.js"></script>
+</body>
+</html>

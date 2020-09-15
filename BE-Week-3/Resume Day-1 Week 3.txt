@@ -1,0 +1,27 @@
+Resume Day-1 Week 3
+Julia Fransiska Lumbansiantar
+
+What I learn today?
+1. Variable using let & const
+'let' and 'const' are different from 'var'. 
+When you use 'var' to declare something, you can redeclare it 
+again. But, it's not the same with 'let' and 'const'. 'let' 
+and 'const' are mutable or modify only for objects and array. 
+The difference between 'let' and 'const' is  you can change 
+the value of 'let' but not for 'const'.
+
+2. Arrow Function
+Shorthand for function to make it simpler.
+
+3. A bit about Import and Export
+Exporting and importing files from outside the files
+
+4. Basic of Class
+Class is a function with to main components, expressions and 
+declaration. In the Class, there is function constructor to 
+point out the parameters or to declare the variable.
+You can say, Class is a blueprint for the app.
+
+In which it's hard for me to understand
+1. A bit about Arrow Function
+2. Class
