@@ -1,7 +1,7 @@
 //Product Controller
 
 const Product = require('../model/model');
-const View = require('../view/view ');
+const View = require('../view/view');
 
 class ProductController{
     static help (){
@@ -11,6 +11,7 @@ class ProductController{
     static list(){
         const list = Product.list();
         View.list(list);
+        console.log(list)
     }
     static add(params){
         const result = Product.add(params);
