@@ -56,35 +56,21 @@ function sortLetter(words){
 
 
 //4. Split words without function .split(" ") and find the max
-/**
- * PEMETAAN MASALAH
- * 1. String diubah menjadi array kata (words)
- *      - lakukan looping terhadap string untuk memisahkan antara spasi dan kata
- *      - setiap loop bertemu dengan spasi, loop akan terulang kembali untuk membentuk array yang baru (var temp (temp1) sbg penampung dibutuhkan)
- * 2. masing2 array kata dihitung panjangnya (words.length)
- *      - masing2 array kata dipisahkan lagi huruf-hurufnya
- *      - masing2 array huruf pada masing2 kata dihitung jumlahnya (letter.length)
- * 3. dicari letter.length terpanjang (var temp (temp2) dibutuhkan kembali untuk menampung letter.length terpanjang)
- * 4. return temp2 untuk melihat hasilnya
- * 
- * PSEUDOCODE
- * 
- */
-var string = "Lorem ipsum is dummy text";
-    // Using For
-function maxWordLength(){
-    var kata = "";
-    var temp1 = [];
-    for (let i = 0; i < string.length; i++){
+function Split(string){
+    var temp =[];
+    var word ="";
+    for (let i=0; i<string.length; i++){
         if(string[i] !== " "){
-            kata += string[i];
-            console.log(kata);
+            word += string[i];
         } else {
-            temp1.push(kata)
+            temp.push(word);
+            word = "";
         }
-    
+        if (i === string.length - 1){
+            temp.push(word);
+        }
     }
-    console.log(temp1);
+    console.log(temp)
 }
     // Using While
    // function maxWordLength(){
