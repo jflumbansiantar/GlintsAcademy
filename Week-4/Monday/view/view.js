@@ -1,36 +1,29 @@
 class View {
-    // static help (){
-    //     const help = Product.help();
-    //     View.help(help);
-        // console.log(help)
-    // }
     static list(data){
         data.forEach(el => {
-            console.log(el)
+            console.log(`${el.id}. ${el.task}`)
         })
     }
-    // static add(params){
-    //     const result = Product.add(params);
-    //     View.message(result);
-    // }
-    // static update(params){
-    //     const result = Product.update(params);
-    //     View.message(result);
-    // }
-    // static delete(params){
-    //     const result = Product.delete(params);
-    //     View.message(result);
-    // }
-    // static complete(params){
-    //     const result = Product.complete(params);
-    //     View.message(result);
-    // }
-    // static uncomplete(params){
-    //     const result = Product.uncomplete(params);
-    //     View.message(result);
-    // }
-    static message(){
-        View.message("Please input something.")
+    static help(data){
+        console.log(data)
+    }
+    static add(data){
+        console.log(data)
+    }
+    static update(data){
+        console.log(data)
+    }
+    static delete(data){
+        console.log(data)
+    }
+    static complete(data){
+        console.log(data)
+    }
+    static uncomplete(data){
+        console.log(data)
+    }
+    static message(data){
+        console.log(data)
     }
 }
 

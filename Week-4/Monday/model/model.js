@@ -29,20 +29,18 @@ class modelProduct {
 
     }
     static add(params){
+        //
         const tasks = this.list();
-        const [task, status, tag, createdAt, completedAt] = params;
+        const [task, status] = params;
         const nextId = tasks[tasks.length - 1].id + 1;
-        // const createdAt = date1;
-        // let date1 = (new Date ()).toLocaleDateString().split("/");
-        // const completedAt = date2;
-        // let date2 = (new Date ()).toLocaleDateString().split("/");
+        
         const tempObject = {
             id : nextId,
             task : task,
-            status :status,
-            tag : tag,
-            created_at : createdAt,
-            completed_at : completedAt,
+            status : (status == 'true'),
+            tag : [],
+            created_at : new Date(),
+            completed_at : null,
         }
         tasks.push(tempObject);
 
@@ -74,21 +72,71 @@ class modelProduct {
     static complete(params){
         const tasks = this.list();
         const id = Number(params[0]);
-        const completedAt = [];
-        const uncomplete = [];
-
         tasks.forEach(element => {
-            if (element[id].completedAt === true){
-                completedAt.push(element[id]);
-            } else {
-                uncomplete.push(element[id]);
+            if(element.id === id){
+                element.status = true;
+                if(element.status === true){
+                    element.completed_at = new Date();
+                }
             }
-        }
-        )
+        })
+        // return tasks
+        this.save(tasks);
+        return `Id ${id} has been completed.`
+    }
+    static uncomplete(params){
+        const tasks = this.list();
+        const id = Number(params[0]);
+        tasks.forEach(element => {
+            if(element.id === id){
+                element.status = false;
+                if(element.status !== true){
+                    element.completed_at = "null";
+                }
+            }
+        })
+        // return tasks
+        this.save(tasks);
+        return `Id ${id} has not completed yet.`
     }
     static save(data){
-        fs.writeFileSync('./data.json'. JSON.stringify(data, null, 2));
+        fs.writeFileSync('./data.json', JSON.stringify(data, null, 2));
     }
 }
 
 module.exports = modelProduct;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/**
+ * SIDE Notes
+ * Function Complete dan Uncomplete terlalu ribet...
+ * Blum bisa untuk DRY. Masih perlu banyak latihan lagi :(
+ */
