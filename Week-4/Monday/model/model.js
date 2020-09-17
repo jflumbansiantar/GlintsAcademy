@@ -12,7 +12,9 @@ class modelProduct {
         this.completed_at = completed_at;
     }
     static help (){
-        
+        const help = ["List", "Add", "Update", "Delete", "Status"];
+        return help;
+        // console.log(help)
     }
     static list(){
         const data = fs.readFileSync('./data.json', 'utf-8');
@@ -30,10 +32,10 @@ class modelProduct {
         const tasks = this.list();
         const [task, status, tag, createdAt, completedAt] = params;
         const nextId = tasks[tasks.length - 1].id + 1;
-        const createdAt = date1;
-        let date1 = (new Date ()).toLocaleDateString().split("/");
-        const completedAt = date2;
-        let date2 = (new Date ()).toLocaleDateString().split("/");
+        // const createdAt = date1;
+        // let date1 = (new Date ()).toLocaleDateString().split("/");
+        // const completedAt = date2;
+        // let date2 = (new Date ()).toLocaleDateString().split("/");
         const tempObject = {
             id : nextId,
             task : task,

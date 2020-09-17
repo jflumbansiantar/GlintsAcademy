@@ -6,6 +6,7 @@ const ProductController = require('./controller/controller');
 
 switch (command) {
     case 'help':
+        // console.log("Help")
         ProductController.help();
         break;
     case 'list':
@@ -29,5 +30,4 @@ switch (command) {
     default:
         ProductController.message();
         break;    
-
 }

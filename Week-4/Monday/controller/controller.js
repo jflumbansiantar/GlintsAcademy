@@ -7,6 +7,7 @@ class ProductController{
     static help (){
         const help = Product.help();
         View.help(help);
+        // console.log(help)
     }
     static list(){
         const list = Product.list();
