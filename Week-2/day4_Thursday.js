@@ -56,57 +56,50 @@ function sortLetter(words){
 
 
 //4. Split words without function .split(" ") and find the max
-function Split(string){
-    var temp =[];
-    var word ="";
-    for (let i=0; i<string.length; i++){
-        if(string[i] !== " "){
-            word += string[i];
-        } else {
-            temp.push(word);
-            word = "";
+function maxWordLength(){
+    let maxWord = [];
+    let nextWord = [];
+    string += "";
+    for(let i=0; i<=string.length; i++){
+        if (string[i] === " "){
+            if(nextWord.length > maxWord.length){
+                maxWord = nextWord;
+            }
+            i++;
+            nextWord = "";
         }
-        if (i === string.length - 1){
-            temp.push(word);
-        }
+        nextWord += string[i];
     }
-    console.log(temp)
+    console.log(maxWord);
 }
-    // Using While
-   // function maxWordLength(){
-        
-  //  }
-    
-    // Test Case
-//maxWordLength(string); //Lorem
+
+// let string = "Nanti kita cerita tentang hari ini"
+// maxWordLength(string);
+
 
 
 //5. Count the vowel
 //Count the vowel and turn into object
-/**
- * PEMETAAN MASALAH
- * 1. Jabarkan seluruh karater alpabet.
- * 2. Loop karakter untuk mencari vowel pada alpabet
- * 3. Jika ketemu dengan spasi, hilangkan.
- * 4. Setiap vowel tertentu, buat penampungnya dan hitung jumlahnya (++)
- * 
- */
-// function vowelsObject(apaja){
-        
-// }
-
-// function countVoewl(apaja){
+function vowelsObject(string){
+    let temp = []
+    temp.a = countVowel(string,"a")
+    temp.i = countVowel(string,"i")
+    temp.u = countVowel(string,"u")
+    temp.e = countVowel(string,"e")
+    temp.o = countVowel(string,"o")
+    console.log(temp);
+}
     
-//}
+function vowelsObject (string,char){
+    let vowel = 0;
+    for (let i = 0; i < string.length; i++) {
+        if(string[i] === char){
+            vowel++;
+        }        
+    }
+    return vowel;
+}
 
 //Test Case
-// vowelsObject("rum raisin chocolate ice cream");
-/*
-    {
-        a : 3,
-        i : 3,
-        u : 1,
-        e : 3,
-        o : 2
-    }
-*/
+vowelsObject("Kangen kerja di lab.");
+

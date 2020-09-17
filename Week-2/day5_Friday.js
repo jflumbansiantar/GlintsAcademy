@@ -1,6 +1,6 @@
 // //Import 
-// import * as myModule from '/data.json'
-// myModule[("id")]
+import * as myModule from 'day3/data.json'
+myModule[("id")]
 //Variable
 
 // Fetch data from json
@@ -10,6 +10,3 @@
 
 
 //Invoke
-
-
-console.table(3,3)
