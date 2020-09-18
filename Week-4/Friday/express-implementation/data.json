@@ -1,0 +1,22 @@
+[
+  {
+    "name": "Ali",
+    "major": "Node.js",
+    "score": 76
+  },
+  {
+    "name": "Alga",
+    "major": "Biota laut",
+    "score": 65
+  },
+  {
+    "name": "Homo sapiens",
+    "major": "Python",
+    "score": 98
+  },
+  {
+    "name": "Ars de vita",
+    "major": "Seni",
+    "score": 76
+  }
+]
