@@ -1,7 +1,6 @@
 'use strict';
 const fs = require('fs');
 
-
 module.exports = {
   up: async (queryInterface, Sequelize) => {
     /**
@@ -35,5 +34,6 @@ module.exports = {
      * Example:
      * await queryInterface.bulkDelete('People', null, {});
      */
+    await queryInterface.bulkDelete('Tasks', null, {});
   }
 };

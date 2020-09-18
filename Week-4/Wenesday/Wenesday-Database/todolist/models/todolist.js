@@ -17,8 +17,8 @@ module.exports = (sequelize, DataTypes) => {
     task: DataTypes.STRING,
     status: DataTypes.STRING,
     tag: DataTypes.STRING,
-    createdAt: DataTypes.INTEGER,
-    completedAt: DataTypes.INTEGER
+    createdAt: DataTypes.DATE,
+    completedAt: DataTypes.DATE
   }, {
     sequelize,
     modelName: 'ToDoList',
