@@ -1,0 +1,2 @@
+Tugas hari senin dicoba dimasukkan ke database pakai cara sequelize dan sequelize-cli
+Masih ada yg salah/kurang tepat dibeberapa bagian.
