@@ -10,7 +10,7 @@ router.get('/todolist', (req, res) => {
     res.send("This is a TODOLIST home PAGE");
 })
 
-router.use('/todolist', TodoRouter)
+// router.use('/todolist', TodoRouter)
 
 // router.use('/products', ProductRouter);
 
