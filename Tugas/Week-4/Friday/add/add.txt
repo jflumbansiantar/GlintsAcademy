@@ -1,10 +1,8 @@
 Hmmm....
 Okay..
-So..
-I tried my best then I cried.
 
-So today I had a quiz this morning using Express, EJS, Sequelize, and PG. But I failed to make the database.
-From Task 0, I already went wrong. I didn't read the rules.
+So today I had a quiz this morning using Express, EJS, Sequelize, and PG. And I failed to make the database.
+I didn't read the rules an everything went down.
 
 Anyway, I tried to do Friday task using Express, EJS, Sequelize, and PG. And I can make the database. 
 Same step, same concept but different task and different result.
