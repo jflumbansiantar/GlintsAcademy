@@ -1,18 +1,16 @@
 const {Router} = require('express');
 const router = Router ();
-// const TodoRouter = require('./products');
 
 router.get('/', (req, res) => {
     res.render('index.ejs');
 })
 
-router.get('/todolist', (req, res) => {
+router.get('/ships', (req, res) => {
     res.send("Ships PAGE");
 })
+router.get('/pirates', (req, res) => {
+    res.send("Pirates PAGE");
+})
 
-
-// router.use('/todolist', TodoRouter)
-
-// router.use('/products', ProductRouter);
 
 module.exports = router;
