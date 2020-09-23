@@ -1,0 +1,37 @@
+STARTING THE API OR CREATING THE DATABASE IN POSTGRES OR A COMPILATION OF USING EXPRESS/PG/NODEMON/DOTENV/SEQUELIZE/EJS
+
+After rewatching the records over and over again, I make these following steps for me to understand. <Hopefully, I still understand after this>
+1. Make a new folder that will contain your own project or database
+2. npm init -y
+3. npm i express pg sequelize sequelize-cli ejs nodemon dotenv 
+    (from here, there will be three items appear <node_modules, package.json, package-lock.json>)
+4. code .env 
+    (put what you don't want people to see)
+5. code .gitignore 
+    (put node_modules<you don't want to push this one to your git> and .env <here's your secret> here.)
+6. code app.js 
+    (this will be the center of everything. You put port, routes, express, middleware, and etc here. If you don't make this cutie .js, your programs or apps will not appear.)
+7. npx sequelize-cli init 
+    (you have acquire 4 more items: config, models, migration, and seeders)
+8. In config.js, change the database name and everything that you need to change. 
+8. mkdir routes views controllers 
+    (before you make the database, I suggest you to make these four folders.)
+9. At this very moment, let's forget about views for awhile. Our main focus is routes and controllers.
+10. npx sequelize-cli model:generate --name <nama file> --attributes <input all the key:value that you need for your app/program>
+11. npx sequelize-cli db:create 
+    (in this step, you already make your own database but its still empty cause you don't push anything to it.)
+12. Fill the routes and controllers 
+    (Now, this step is very important and it will take so much time to get through this.)
+13. Test your logic in POSTMAN 
+    (trust me, POSTMAN is really hard to understand!)
+14. npx sequelize-cli db:migrate 
+    (now your database has something in it.)
+15. if you have time, you can make the views.
+
+
+ATTENTION!!!
+Before you get through all those steps, I really suggest you to make YOUR OWN ALGORITHM in a paper. You write it!!
+You write the routes, controllers, and later the views. 
+As for views, you can search it in Bootstrap.
+
+POSTMAN is like a browser but without any views. You can push the data you want through this POSTMAN. (It's a bit weird to say POSTMAN, what if it called MAILMAN?)
