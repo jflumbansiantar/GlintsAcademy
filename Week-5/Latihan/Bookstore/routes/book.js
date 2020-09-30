@@ -9,6 +9,6 @@ router.get('/delete/:id', BookController.deleteBook)
 router.get('/edit/:id', BookController.updateFormBook)
 router.post('/edit/:id', BookController.updateBook)
 router.get('/:id', BookController.findByBookId)
-router.get('/:name', BookController.findByBookName)
+// router.get('/:name', BookController.findByBookName)
 
 module.exports = router;

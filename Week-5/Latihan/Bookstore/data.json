@@ -4,7 +4,7 @@
         "author" :"Oliver Bowden",
         "year" : 2009,
         "pages" : 528,
-        "genre" : "Fantasy",
+        
         "quantity" : 5
     },
     {
@@ -12,7 +12,7 @@
         "author" :"Andrea Hirata",
         "year" : 2005,
         "pages" : 534,
-        "genre" : "Fiction",
+        
         "quantity" : 6
     }
 ]
