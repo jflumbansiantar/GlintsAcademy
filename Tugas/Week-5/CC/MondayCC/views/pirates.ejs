@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pirate x Marine : Time To advance</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        table{
+            width: 450 px;
+        }
+        th, td {
+            padding : 5px,
+        }
+        thead {
+            background: darksalmon;
+        }
+    </style>
+</head>
+<body>
+    <h1>Pirate List</h1>
+
+    <a href="/">Home</a>
+    <a href="/pirates">Choose your ship</a>
+    <a href="/pirates/add">Add your ship</a>
+
+    <h2>This is Pirates Page</h2>
+
+    <table border="1" cellspacing="1">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Status</th>
+                <th>Haki</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% ships.forEach(ships => { %>
+                <tr>
+                    <td><%= pirates.id %></td>
+                    <td><%= pirates.name %></td>
+                    <td><%= pirates.status %></td>
+                     <td><%= pirates.haki %></td>
+                </tr>
+            <% })%>
+        </tbody>
+    </table>
+</body>
+</html>
