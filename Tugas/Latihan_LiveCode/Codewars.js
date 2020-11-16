@@ -22,12 +22,12 @@ function DNAStrand(dna) {
             tempDNA.push('C')
         }
     }
-    return tempDNA.join('')
+    //     return tempDNA.join('')
 }
 
-console.log(DNAStrand('AAAA'))
-console.log(DNAStrand('TAACG'))
-console.log(DNAStrand('CATA'))
+// console.log(DNAStrand('AAAA'))
+// console.log(DNAStrand('TAACG'))
+// console.log(DNAStrand('CATA'))
 
 
 //Best practices
@@ -79,3 +79,40 @@ function XO(str) {
 //     str = str.toLowerCase().split('');
 //     return str.filter(x => x === 'x').length === str.filter(x => x === 'o').length;
 // }
+
+
+function shuffle(input) {
+    let temp = [];
+    let number = 0;
+    for (let i = 0; i <= input.length; i++) {
+        if (input[i] > number) {
+            number = input[i];
+            temp.push(input[i]);
+        }
+    }
+    console.log(temp, '-temp');
+    return temp;
+    // console.log(input.sort())
+}
+
+let input = [5, 2, 4, 3, 1]
+
+// console.log(shuffle(input))
+
+function getMin(arr1, arr2) {
+    let temp = [];
+    let count = 0
+    for (let i = 0; i <= arr1.length; i++) {
+        for (let j = 0; j <= arr2.length; j++) {
+            if ((arr1[i] <= arr1[i -1])&&(arr1[i] === arr2[j])) {
+                temp.push(arr1[i]);
+                count ++;
+            }
+        }
+    }
+    return count;
+}
+
+let arr1 = [1, 4, 3, 2];
+let arr2 = [1, 3, 2]
+console.log(getMin(arr1, arr2))
