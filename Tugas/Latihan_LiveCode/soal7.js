@@ -21,6 +21,7 @@ const fruits = [
 
 const cart = (cashOnHands) => {
     //code here
+    
 }
 
 //Test case
