@@ -4,21 +4,15 @@
 const retjehan = [100000, 50000, 20000, 5000, 1000, 500, 100]
 
 const exchange = (doit) => {
-    let temp = [];
-    // temp.a = 
-    for (let i = 0; i <= retjehan.length; i++) {
-        for (let j = 0; j <= retjehan.length; j++) {
-            doit = doit % retjehan[i];
-            if (retjehan[i] = retjehan[j]) {
-                temp.push(retjehan[i])
-            }
+    retjehan.forEach(element => {
+        let uang = doit/element;
+        let tempUang = Math.floor(uang) ;
+        // console.log(uang, '--uang')
+        if (uang) {
+            console.log(`${element}: ${tempUang}`);
         }
-
-    }
-    console.log(doit, '--doit')
-
-    console.log(temp, '--temporary Data')
-    // return temp;
+        doit %= element;
+    })
 }
 
 //Test Case
@@ -33,7 +27,7 @@ exchange(185500);
         500 : 1
     }
 */
-// exchange(377000);
+exchange(377000);
 // Output
 /*
      {

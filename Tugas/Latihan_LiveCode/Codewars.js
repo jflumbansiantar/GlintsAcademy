@@ -113,6 +113,6 @@ function getMin(arr1, arr2) {
     return count;
 }
 
-let arr1 = [1, 4, 3, 2];
-let arr2 = [1, 3, 2]
+let arr1 = [1, 4, 3, 2, 7];
+let arr2 = [1, 3, 2, 6, 7]
 console.log(getMin(arr1, arr2))

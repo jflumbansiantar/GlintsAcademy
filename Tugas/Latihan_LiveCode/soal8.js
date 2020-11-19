@@ -36,3 +36,27 @@ const book = (seat) => {
 */
 
 
+// let number = Number(seat[1] - 1);
+    // switch (seat[0]) {
+    //     case 'A':
+    //         if (seats[0, number] == 'X') {
+    //             console.log(`${seat} has already been booked!`)
+    //         } else {
+    //             seats[0, number] = 'X';
+    //         }
+    //         break;
+    //     case 'B':
+    //         if (seats[1, number] == 'X') {
+    //             console.log(`${seat} has already been booked!`)
+    //         } else {
+    //             seats[0, number] = 'X';
+    //         }
+    //         break
+    //     case 'C':
+    //         if (seats[2, number] == 'X') {
+    //             console.log(`${seat} has already been booked!`)
+    //         } else {
+    //             seats[0, number] = 'X';
+    //         }
+    //         break;
+    // 

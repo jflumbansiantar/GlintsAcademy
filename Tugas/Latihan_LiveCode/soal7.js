@@ -20,12 +20,9 @@ const fruits = [
 ]
 
 const cart = (cashOnHands) => {
-    //code here
-    
 }
-
 //Test case
-// cart(55000)
+cart(55000)
 //Output
 /*
     {
