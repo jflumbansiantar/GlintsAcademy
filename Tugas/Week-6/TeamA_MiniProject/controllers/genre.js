@@ -1,18 +1,22 @@
 const { movies, genre } = require('../models')
 
 class GenreController {
-    static async getGenre (req,res, next) {
+    static async getGenre(req, res, next) {
         try {
             const result = await genre.findAll({
                 order: [['id', 'ASC']],
-                include : [movies]
+                include: [movies]
             })
-            res.status(200).json(result)
+            res.status(200).json({
+                status: true,
+                msg: 'Here is the list of genres.',
+                data: result
+            })
         } catch (error) {
             next(error)
         }
     }
-    static async addGenre (req,res, next) {
+    static async addGenre(req, res, next) {
         const { genreName } = req.body;
         try {
             const result = await genre.findOne({
@@ -21,19 +25,26 @@ class GenreController {
                 }
             })
             if (result) {
-                res.status(400).json({msg: 'Genre already exists.'})    
+                res.status(400).json({
+                    status: false,
+                    msg: 'Genre already exists.'
+                })
             } else {
                 const newGenre = await genre.create({
                     genreName,
                 })
-                res.status(200).json(newGenre)
+                res.status(200).json({
+                    status: true,
+                    msg: 'Genre created!',
+                    data: newGenre
+                })
             }
-            
+
         } catch (error) {
             next(error)
         }
     }
-    static async deleteGenre (req,res, next) {
+    static async deleteGenre(req, res, next) {
         const id = req.params.id;
         try {
             const result = await genre.destroy({
@@ -41,12 +52,16 @@ class GenreController {
                     id
                 }
             })
-            res.status(200).json({result, msg : 'Success deleted'})
+            res.status(200).json({
+                status: true,
+                msg: 'Genre deleted',
+                data: result
+            })
         } catch (error) {
             next(error)
         }
     }
-    static async findGenre (req,res, next) {
+    static async findGenre(req, res, next) {
         const { id } = req.params.id;
         try {
             const result = await genre.findOne({
@@ -54,7 +69,11 @@ class GenreController {
                     id
                 }
             })
-            res.status(200).json(result)
+            res.status(200).json({
+                status: true,
+                msg: 'Here is the genre you are looking for.',
+                data: result
+            })
         } catch (error) {
             next(error)
         }

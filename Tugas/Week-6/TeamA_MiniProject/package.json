@@ -1,5 +1,5 @@
 {
-  "name": "projectMiniCollabsA",
+  "name": "projectminicollabsa",
   "version": "1.0.0",
   "description": "Creating Movie Review App \"NAMA KELOMPOKMU OPOHE\"\r This app is an application to manage your assets.\r This app has : RESTfull endpoint for movie review app using CRUD (Create, Read, Update, Delete) operation.",
   "main": "index.js",

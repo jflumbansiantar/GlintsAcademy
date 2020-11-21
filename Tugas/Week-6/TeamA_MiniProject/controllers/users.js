@@ -1,6 +1,6 @@
 const { users } = require("../models");
-const {decryptPwd} = require('../helpers/bcrypt')
-const {tokenGenerator} = require('../helpers/jwt')
+const { decryptPwd } = require('../helpers/bcrypt')
+const { tokenGenerator } = require('../helpers/jwt')
 
 
 class usersController {
@@ -14,6 +14,7 @@ class usersController {
 			})
 			if (found) {
 				res.status(409).json({
+					status: false,
 					msg: "Thats email already registered! Input another email account, thanks!"
 				})
 			} else {
@@ -24,13 +25,17 @@ class usersController {
 					role
 				});
 				const access_token = tokenGenerator(user);
-				res.status(201).json(access_token);
+				res.status(201).json({
+					status: true,
+					msg: 'User created successfully',
+					data: access_token
+				});
 			}
-		} catch (err) {
-			res.status(500).json(err);
+		} catch (error) {
+			next(error);
 		}
 	}
-	  static async login(req, res, next) {
+	static async login(req, res, next) {
 		const { email, password } = req.body;
 		console.log(req.body);
 		try {
@@ -38,78 +43,101 @@ class usersController {
 				where: { email }
 			});
 			if (user) {
-				if(decryptPwd(password, user.password)) {
-				const access_token = tokenGenerator(user);
-				res.status(200).json({ token : access_token });
-			  } else {
-				  res.status(409).json({
-				  msg: "Incorrect password!"
+				if (decryptPwd(password, user.password)) {
+					const access_token = tokenGenerator(user);
+					res.status(200).json({
+						status: true,
+						msg: 'Login successful.',
+						token: access_token
+					});
+				} else {
+					res.status(409).json({
+						status: false,
+						msg: "Incorrect password!"
+					})
+				}
+			} else {
+				res.status(404).json({
+					status: false,
+					msg: "User not found!"
 				})
-			  }
-			} else{
-                res.status(404).json({
-                    msg : "User not found!"
-                })
-            }
-			} catch (err) {
-			  next(err);
 			}
+		} catch (error) {
+			next(error);
+		}
 	}
-	
-	static async findById(req, res) {
+
+	static async findById(req, res, next) {
 		const id = req.params.id;
 		try {
 			const user = await users.findOne({
 				where: { id }
 			});
 			if (user) {
-                res.status(200).json(user)    
-            }
-            else {
-                res.status(404).json(`User is not found.`)
-            }
-        } 
-        catch (error) {
-            next(error)
-        }
+				res.status(200).json({
+					status: true,
+					msg: 'Here is the user.',
+					data: user
+				})
+			}
+			else {
+				res.status(404).json({
+					status: false,
+					msg: 'User not found.'
+				})
+			}
+		}
+		catch (error) {
+			next(error)
+		}
 	}
-    static async editUsers(req, res) { 
+	static async editUsers(req, res, next) {
 		const id = req.params.id;
 		const { name, email, password } = req.body;
 		const image = req.file.path
 		try {
-			const found = await users.findOne({ 
-                where : { id }
-            })
-            if (found) {
-				users.update({
-                    name,
+			const found = await users.findOne({
+				where: { id }
+			})
+			if (found) {
+				const update = await users.update({
+					name,
 					image,
-                    email,
+					email,
 					password
 				}, {
 					where: { id },
-					}
+				}
 				);
-			}   
-			res.status(202).json({
-				msg : "Profile has been updated!"
-		}); 
-		} catch (err) {
-			res.status(500).json(err);
+				res.status(202).json({
+					status: true,
+					msg: "Profile has been updated!",
+					data: update
+				});
+			} else {
+				res.status(404).json({
+					status: false,
+					msg: "Cannot find user."
+				});
+			}
+
+		} catch (error) {
+			next(error)
 		}
 	}
-	static async getAllUsers(req, res) {
+	static async getAllUsers(req, res, next) {
 		console.log("See all the Users");
 		try {
-		  const user = await users.findAll({})
-	
-		  res.status(200).json(user);
+			const user = await users.findAll({})
+
+			res.status(200).json({
+				status: true,
+				msg: 'Here are all the Users.',
+				data: user
+			});
 		} catch (err) {
-		  res.status(500).json({
-			message: err,
-		  });
+			next(error)
 		}
-	  }
+	}
 }
 module.exports = usersController;

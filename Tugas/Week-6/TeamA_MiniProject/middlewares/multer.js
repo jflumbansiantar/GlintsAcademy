@@ -1,17 +1,26 @@
 const multer = require('multer');
+const cloudinary = require('cloudinary').v2;
+const {CloudinaryStorage} = require('multer-storage-cloudinary');
 
-let storage = multer.diskStorage({
-    destination: function (req, file, cb) {
-      cb(null, 'uploads/')
+//cloud config
+cloudinary.config({
+    cloud_name: "dpcbnn9ji",
+    api_key: "115437583433565",
+    api_secret: "QBdCck8NKNruBb1anWxng2YlKl8"
+});
+
+//storage
+const storage = new CloudinaryStorage({
+    cloudinary: cloudinary,
+    folder: "Movie-Review",
+    allowedFormats: ["jpg", "jpeg", "png", "svg"],
+    filename: (req, files, cb) => {
+        cb(null, Date.now() + "_" + files.originalname.split(".")[0]);
     },
-    filename: function (req, file, cb) {
-      const uniqueSuffix = Date.now() + '-' + Math.round(Math.random() * 1E9)
-      cb(null, file.fieldname + '-' + uniqueSuffix)
-    }
-  })
-  
-let upload = multer({ storage: storage })
+});
 
-module.exports = {
-    upload,
-}
+const uploader = multer({
+    storage: storage,
+});
+
+module.exports = {uploader};
