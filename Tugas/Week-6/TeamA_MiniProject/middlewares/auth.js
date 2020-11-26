@@ -8,7 +8,8 @@ const authentication = (req, res, next) => {
 
   if (!access_token) {
     return res.status(404).json({
-      msg: "Token not found",
+      status: false,
+      msg: "Token not found"
     });
   } else {
     try {
@@ -22,15 +23,18 @@ const authentication = (req, res, next) => {
   }
 };
 
-  const authorization = (req, res, next) => {
+const authorization = (req, res, next) => {
   console.log("Authorization works!");
-   
+
   let role = req.usersData.role;
 
-  if (role === "Admin" ) {
+  if (role === "Admin") {
     next();
   } else {
-    res.status(400).json("Admin Only!");
+    res.status(400).json({
+      status: false,
+      msg: "Admin Only!"
+    });
   }
 };
 

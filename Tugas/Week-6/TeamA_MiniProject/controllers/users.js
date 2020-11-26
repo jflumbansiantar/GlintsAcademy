@@ -128,12 +128,12 @@ class usersController {
 	static async getAllUsers(req, res, next) {
 		console.log("See all the Users");
 		try {
-			const user = await users.findAll({})
+			const users = await users.findAll({})
 
 			res.status(200).json({
 				status: true,
 				msg: 'Here are all the Users.',
-				data: user
+				data: users
 			});
 		} catch (err) {
 			next(error)
