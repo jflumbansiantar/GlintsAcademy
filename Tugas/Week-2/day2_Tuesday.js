@@ -24,7 +24,7 @@ function fpb(number1 , number2){
 function CheckPrimes(a){
     let faktor = 0;
     for(let i = 1; i<=a; i++){
-        if(number%i === 0){
+        if(a%i === 0){
             faktor++;
         }
     }
@@ -48,6 +48,7 @@ function printPrime(b){
             tempNum++
         }
     }
+    return temp
 }
 // printPrime(3); //2 3 5
 // printPrime(5); //2 3 5 7 11 
