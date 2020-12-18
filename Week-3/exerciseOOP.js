@@ -207,42 +207,66 @@ let Yuzu = new MobileDev("Yuzu Hitsu", "Chef", ["Android", "ASP.NET", "WebKit", 
 //     }
 // }
 
-class Human {
-  
-    constructor(name, address) {
-      this.name = name;
-      this.address = address;
-    }
-  
-    introduce() {
-      console.log(`Hi, my name is ${this.name}`)
-    }
-  }
-  
-  // Create a child class from Person
-  class Programmer extends Person {
-  
-    constructor(name, address, programmingLanguages) {
-      super(name, address) // Call the super/parent class constructor, in this case Person.constructor;
-      this.programmingLanguages = programmingLanguages;
-    }
-  
-    // Overload the Introduce Method
-    introduce(withDetail) {
-      super.introduce(); // Call the super class introduce instance method.
-      if (withDetail) console.log(`I can write a programming using these languages`, this.programmingLanguages);
-    }
-  
-    code() {
-      console.log(
-        "Code some",
-        this.programmingLanguages[
-          Math.floor(Math.random * this.programmingLanguages.length)
-        ]
-      )
-    }
-  }
-  
+// let Hitsugaya = new Human("Hitsugaya Android", true)
+// console.log(Hitsugaya.work())
 
-let Hitsugaya = new Human("Hitsugaya Android", true)
-console.log(Hitsugaya.work())
+//Abstraction
+class Abstraction {
+    constructor(props) {
+        if (this.constructor === Abstraction) {
+            throw new Error("Cannot instantiate from Abstracct Class") //Because it's abstract class
+        }
+        let { name, address } = props;
+        this.name = name;
+        this.address = address;
+        this.profession = this.constructor.name;
+    }
+
+    work() {
+        console.log('Working....')
+    }
+    introduce() {
+        console.log(`Hello, my name is ${name}`)
+    }
+
+}
+
+class Police extends Abstraction {
+    constructor(props) {
+        super(props);
+        this.rank = props.rank;
+    }
+
+    work() {
+        console.log('Go to police station');
+        super.work();
+    }
+}
+
+let Wibawa = new Police({
+    name: 'Wibawa',
+    address: 'Kalibata',
+    rank: 'Sergent'
+})
+Wibawa.work()
+
+//Polymorphism
+class Polymorphism {
+    constructor(props) {
+        if (this.constructor === Abstraction) {
+            throw new Error("Cannot instantiate from Abstracct Class") //Because it's abstract class
+        }
+        let { name, address } = props;
+        this.name = name;
+        this.address = address;
+        this.profession = this.constructor.name;
+    }
+
+    work() {
+        console.log('Working....')
+    }
+    introduce() {
+        console.log(`Hello, my name is ${name}`)
+    }
+
+}

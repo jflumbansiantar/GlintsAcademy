@@ -4,14 +4,18 @@
 const retjehan = [100000, 50000, 20000, 5000, 1000, 500, 100]
 
 const exchange = (doit) => {
+    //call all the retjehan
     retjehan.forEach(element => {
-        let uang = doit/element;
-        let tempUang = Math.floor(uang) ;
-        // console.log(uang, '--uang')
+        //Modulus doit with retjehan
+        doit %= element;
+        //make a variable to divide the retjehan
+        let uang = doit / element;
+        //another variable to round down the uang
+        let tempUang = Math.floor(uang);
+        //print it
         if (uang) {
             console.log(`${element}: ${tempUang}`);
         }
-        doit %= element;
     })
 }
 
@@ -27,7 +31,7 @@ exchange(185500);
         500 : 1
     }
 */
-exchange(377000);
+// exchange(377000);
 // Output
 /*
      {

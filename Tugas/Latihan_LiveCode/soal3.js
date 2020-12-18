@@ -18,7 +18,13 @@ const converter = (decimal) => {
         IV: 4,
         I: 1
     }
-    let romeNumbers = "", i;
+    let romeNumbers = "";
+    // rome.forEach(element => {
+    //     if (decimal >= element) {
+    //         romeNumbers += element;
+    //         decimal -= element;
+    //     }
+    // })
     for (i in rome) {
         while (decimal >= rome[i]) {
             romeNumbers += i;
